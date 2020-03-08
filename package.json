@@ -1,0 +1,50 @@
+{
+  "name": "minimal-nodejs-starter",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "lint": "yarn eslint src --ext js --fix",
+    "test": "NODE_ENV=test jest --forceExit --detectOpenHandles",
+    "test:ci": "CI=true NODE_ENV=test jest --sourceMap=false --watchAll=false"
+  },
+  "husky": {
+    "hooks": {
+      "post-pull": "npm install",
+      "pre-commit": "npm run lint && npm test"
+    }
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.2",
+    "morgan": "^1.9.1",
+    "rosie": "^2.0.1"
+  },
+  "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "faker": "^4.1.0",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2",
+    "uuid": "^7.0.2"
+  },
+  "jest": {
+    "transform": {
+      ".(js)": "@sucrase/jest-plugin"
+    }
+  }
+}
